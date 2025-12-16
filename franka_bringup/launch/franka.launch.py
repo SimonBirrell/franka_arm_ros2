@@ -94,6 +94,12 @@ def generate_launch_description():
                  'rate': 30}],
         ),
         Node(
+            package='controller_manager',
+            executable='spawner',
+            arguments=['joint_trajectory_controller'],
+            output='screen',
+        ),
+        Node(
             package='franka_control2',
             executable='franka_control2_node',
             parameters=[{'robot_description': robot_description}, franka_controllers],
